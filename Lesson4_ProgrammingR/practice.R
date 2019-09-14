@@ -50,3 +50,46 @@ lifeExp_plot <- ggplot(data = az_countries, aes(x=year, y=lifeExp, color=contine
   theme(axis.text.x=element_text(angle = 45), axis.ticks.x =element_blank())
 
 ggsave(filename = "lifeExp.png", plot = lifeExp_plot, width = 12, height = 10, dpi =300, unit ="cm")
+
+ggsave("myPlot.pdf")
+
+ChinaLE <- gapminder[gapminder$country == "China",]
+ggplot(data = ChinaLE, aes(x = year, y=lifeExp)) +
+  geom_bar(stat = "count")
+
+
+ggplot(data = gapminder[gapminder$country == "China",], aes(x=year, y=lifeExp))+
+  geom_bar(fill ='orange', stat = "identity")
+
+e_rows <- startsWith(as.vector(gapminder$country), c('E'))  
+e_countries <- gapminder[e_rows,]
+ggplot(data = e_countries, aes(x=year, y=pop/10000000, fill=continent))+
+  geom_bar(stat = "identity")+
+  facet_wrap(~country)+
+  labs(
+    x = "Year",  ## x axis title
+    y = "Population(Million)", ## y axis title
+    title = "Continent"
+  )+
+  theme(axis.text.x=element_text(angle = 45), axis.ticks.x =element_blank())
+
+  install
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+
+
+
+
+
+
+
+
+
